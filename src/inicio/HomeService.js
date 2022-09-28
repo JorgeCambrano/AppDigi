@@ -112,6 +112,24 @@ function HomeService() {
             </div>
           </div>
         </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <img src={logoVeti} class="logo" alt="jpg" />
+              <h5 class="card-title">Veterinaria</h5>
+              <p class="card-text">Dr. Yuliana del rosario Mendez Cambrano</p>
+              <p>
+                <a href="/Reserva" class="btn btn-primary ">
+                  Reservar{" "}
+                </a> <a href="/Cali" class="btn btn-outline-warning ">
+                  Calificar{" "}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        
       </div>
 
       <Pie />

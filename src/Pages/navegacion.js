@@ -63,6 +63,16 @@ function navegacion() {
                       Registro
                       </Link>
                     </li>
+                    <li>
+                      <Link class="dropdown-item" to="/Consulta">
+                      Registro de profesionista
+                      </Link>
+                    </li>
+                    <li>
+                      <Link class="dropdown-item" to="/Agregar">
+                        Registros
+                      </Link>
+                    </li>
 
                     <li>
                       <hr class="dropdown-divider" />

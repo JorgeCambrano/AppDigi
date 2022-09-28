@@ -8,6 +8,9 @@ import PerfilP from "./Pages/PerfilP";
 import Factura from "../src/Pages/factura";
 import Reserva from "../src/Pages/resev";
 import Califi from "../src/Pages/califi";
+import Consul from "../src/Pages/consulta";
+import Agregar from "./inicio/Agregar";
+
 function App() {
   return (
     <div className="App">
@@ -22,6 +25,9 @@ function App() {
           <Route exact path="/Factura" element={<PerfilP/>} />
           <Route exact path="/Reserva" element={<Reserva/>} />
           <Route exact path="/Cali" element={<Califi/>} />
+          <Route exact path="/Consulta" element={<Consul/>} />
+          <Route exact path="/Agregar" element={<Agregar/>} />
+
 
 
 
