@@ -1,11 +1,12 @@
 import * as React from 'react';
-import Login from "../src/auth/Login";
-import Register from "../src/auth/Register";
-import  Home from "../src/Pages/Home";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+import  Home from "./pages/Home";
+
 import { auth } from './fire';
 import { onAuthStateChanged } from 'firebase/auth'
 
-function App() {
+function rutas() {
   const [user, setUser] = React.useState(null);
   
   const [authState, setAuthState] = React.useState(null)
@@ -31,4 +32,4 @@ function App() {
   if(user) return <Home user={user} setAuthState={setAuthState} setUser={setUser}/>
 }
 
-export default App;
+export default rutas;

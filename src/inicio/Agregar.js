@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "../Servicios/Axios";
-
+import { BsTag } from "react-icons/bs";
+import Navee from "../Pages/navegacion"
 function Agregar() {
-  const urlImage = "http://localhost:4000/public/imagenes/";
+  const urlImage = "http://localhost:4000/imagenes/";
 
   const [personas, setPersonas] = useState([]);
 
@@ -21,10 +22,18 @@ function Agregar() {
 
   return (
     <div>
+          <Navee/>
+
+         <h3 align="right">
+        CATEGORÍAS <span class="badge badge-secondary"></span>
+        <BsTag />
+      </h3>
       <div class="row row-cols-1 row-cols-md-2 g-4">
         {personas.map((persona) => {
           return (
+            
             <div class="col">
+           
               <div class="card">
                 <img
                   src={urlImage + persona.filename}
@@ -34,17 +43,16 @@ function Agregar() {
                   height="250px"
                 />
                 <div class="card-body">
-                  <h5 class="card-title">{persona.nombre}</h5>
-                  <h5 class="card-title">{persona.profesion}</h5>
-                  <h5 class="card-title">{persona.direccion}</h5>
-
+                  <h5 class="card-title">Nombre: {persona.nombre}</h5>
+                  <h5 class="card-title">Profesión: {persona.profesion}</h5>
+                  <h5 class="card-title">Dirección: {persona.direccion}</h5>
                   <p class="card-text">
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => navigate(`/persona/${persona._id}`)}
-                    >
-                      Ir...
-                    </button>
+                  <a href="/Reserva" class="btn btn-primary ">
+                  Reservar{" "}
+                </a>                    
+                    <a href="/Cali" class="btn btn-outline-warning ">
+                  Calificar{" "}
+                </a>
                   </p>
                 </div>
               </div>

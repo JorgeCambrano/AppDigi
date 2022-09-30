@@ -1,6 +1,8 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "../Servicios/Axios";
 import { useParams, useNavigate } from "react-router-dom";
+import "../Pages/ses.css"
+import Navee from "../Pages/navegacion";
 
 function Consulta() {
   const variables = {
@@ -37,12 +39,11 @@ function Consulta() {
   };
 
   const updatePersona = async () => {
-    await Axios.put(
-      `/persona/actualizar/${params.id}`,
-      guardarPersonas
-    ).then(() => {
-      console.log("Datos actualizados correctamente");
-    });
+    await Axios.put(`/persona/actualizar/${params.id}`, guardarPersonas).then(
+      () => {
+        console.log("Datos actualizados correctamente");
+      }
+    );
 
     navigate("/");
   };
@@ -58,72 +59,106 @@ function Consulta() {
   };
   useEffect(() => {
     onePersona(params.id);
-  },);
+  });
 
-  return (
-    <div>
-      <form onSubmit={Enviar} id="formalumno">
+  return ( 
+    <div className="ses">
+          <Navee/>
+
+      <form class="form" onSubmit={Enviar} id="formalumno">
+       <br/>
         <div class="row mb-3">
           <div class="col-sm-10">
+           <h2>REGISTRO DE DATOS</h2> 
             <div class="row mb-3"></div>
+          
 
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label">
                 Nombre de profesionista
               </label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" name="nombre"
-                value={guardarPersonas.nombre}
-                onChange={obtenerValues} />
-              </div>
-            </div>
-            <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">Profesion</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" name="profesion"
-                 value={guardarPersonas.profesion}
-                 onChange={obtenerValues} />
+
+              <div class="col-sm-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="nombre"
+                  value={guardarPersonas.nombre}
+                  onChange={obtenerValues}
+                />
               </div>
             </div>
 
             <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">Sexo</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" name="sexo" 
-                value={guardarPersonas.sexo}
-                onChange={obtenerValues}/>
+              <label class="col-sm-2 col-form-label">Profesión:</label>
+              <div class="col-sm-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="profesion"
+                  value={guardarPersonas.profesion}
+                  onChange={obtenerValues}
+                />
               </div>
             </div>
 
             <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">Dirección</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" name="direccion"
-                value={guardarPersonas.direccion}
-                onChange={obtenerValues} />
+              <label class="col-sm-2 col-form-label">Sexo:</label>
+              <div class="col-sm-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="sexo"
+                  value={guardarPersonas.sexo}
+                  onChange={obtenerValues}
+                />
               </div>
             </div>
 
             <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">Edad</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" name="edad" 
-                value={guardarPersonas.edad}
-                onChange={obtenerValues}/>
+              <label class="col-sm-2 col-form-label">Dirección:</label>
+              <div class="col-sm-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="direccion"
+                  value={guardarPersonas.direccion}
+                  onChange={obtenerValues}
+                />
               </div>
             </div>
 
             <div class="row mb-3">
-              <label class="col-sm-2 col-form-label">Imagen</label>
-              <div class="col-sm-10">
-                <input type="file" class="form-control" name="image" 
-                 value={guardarPersonas.image}
-                 onChange={obtenerValues}/>
+              <label class="col-sm-2 col-form-label">Edad:</label>
+              <div class="col-sm-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="edad"
+                  value={guardarPersonas.edad}
+                  onChange={obtenerValues}
+                />
               </div>
             </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Importación de imagen</label>
+              <div class="col-sm-5">
+                <input
+                  type="file"
+                  class="form-control"
+                  name="image"
+                  value={guardarPersonas.image}
+                  onChange={obtenerValues}
+                />
+              </div>
+            </div>
+            <div class="text-center">
             <button type="submit" class="btn btn-primary">
-            {guardarPersonas._id === "" ? "Guardar" : "Actualizar"}
+              {guardarPersonas._id === "" ? "Guardar" : "Actualizar"}
             </button>
+            
+            </div>
           </div>
         </div>
       </form>

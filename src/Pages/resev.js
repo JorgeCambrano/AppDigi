@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import "../Pages/reserv.css"
 function resev () {
     
