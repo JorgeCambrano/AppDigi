@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../fire";
-import Logo from "../img/LOGOO.png";
 
 
-export default function navegacion({ user, setAuthState, setUser }) {
+export default function navegacion({ setAuthState, setUser }) {
   const signOutHandler = () => {
     signOut(auth)
       .then(() => {
